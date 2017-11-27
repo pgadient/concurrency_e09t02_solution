@@ -55,7 +55,7 @@ public class TestGeom {
 	
 	@Test
 	public void test_PT_position() {
-		Shape ls_shape = new LockSplittingShape();
+		Shape ls_shape = new PassThroughShape();
 		ls_shape.setRectangle(x, y, width, height);
 		
 		ls_shape.changePosition();
@@ -68,7 +68,7 @@ public class TestGeom {
 	
 	@Test
 	public void test_PT_dimension() {
-		Shape ls_shape = new LockSplittingShape();
+		Shape ls_shape = new PassThroughShape();
 		ls_shape.setRectangle(x, y, width, height);
 		
 		ls_shape.changeDimension();
@@ -81,7 +81,7 @@ public class TestGeom {
 	
 	@Test
 	public void test_PT_dimension_position() {
-		Shape ls_shape = new LockSplittingShape();
+		Shape ls_shape = new PassThroughShape();
 		ls_shape.setRectangle(x, y, width, height);
 		
 		ls_shape.changePositionAndDimension();
