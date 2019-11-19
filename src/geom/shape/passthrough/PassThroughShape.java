@@ -14,8 +14,8 @@ import geom.shape.Shape;
  * 
  */
 public class PassThroughShape implements Shape {
-        private Position position;
-        private Dimension dimension;
+        private final Position position;
+        private final Dimension dimension;
         
         public PassThroughShape() {
         	this.position = new Position();
@@ -31,12 +31,10 @@ public class PassThroughShape implements Shape {
         }
         
         public void changePositionAndDimension() {
-                synchronized(this.position) {
-                        synchronized (this.dimension) {
-                                this.position.changeOne();
-                                this.dimension.changeOne();                                
-                        }
-                }
+            // race conditions could occur, but the idea is that the helpers are responsible for the synchronization
+        	// as you see, depending on the scenario not every approach makes much sense
+        	this.position.changeOne();
+            this.dimension.changeOne();                                
         }
         
         @Override
